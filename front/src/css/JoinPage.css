@@ -1,0 +1,267 @@
+/* 헤더/푸터 높이는 JS에서 --header-h / --footer-h 로 주입됨 */
+:root {
+  --header-h: 0px;
+  --footer-h: 0px;
+}
+
+/* 페이지 전체 */
+.join-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e8f0ff 0%, #f5f8ff 100%);
+  height: calc(100vh - 122px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 중앙 영역 */
+.join-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* 회원가입 박스 */
+.join-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
+  margin-top: -5px;
+  padding: 40px 65px;
+  width: 400px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.join-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 123, 255, 0.15);
+}
+
+/* 제목 */
+.join-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #007bff;
+  margin-bottom: 20px;
+  margin-top: -3px;
+}
+
+/* 입력 폼 */
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 4px;
+  padding-bottom: 22px;
+}
+
+/* 입력창 */
+.join-input {
+  padding: 12px 42px 12px 14px; /* 오른쪽 아이콘 여백 확보 */
+  border: 1px solid #d3d8e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.join-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* --- 브라우저 기본 눈 아이콘 제거 --- */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none !important;
+}
+
+/* 👁 눈 아이콘 */
+.toggle-visibility {
+  position: absolute;
+  right: 12px;
+  top: 41% !important;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #777;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.toggle-visibility:hover {
+  color: #007bff;
+}
+
+/* 유효성 안내문구 */
+.validation-text {
+  position: absolute;
+  left: 5px;
+  bottom: -20px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.validation-text.valid,
+.validation-text.invalid {
+  opacity: 1;
+}
+
+.validation-text.valid {
+  color: #00b341;
+}
+.validation-text.invalid {
+  color: #ff4a4a;
+}
+
+/* 버튼 */
+.join-btn {
+  padding: 13px;
+  background: linear-gradient(135deg, #007bff, #00a2ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.25);
+  margin-top: 0px;
+}
+
+.join-btn:hover {
+  background: linear-gradient(135deg, #0066e3, #0093f0);
+  transform: translateY(-2px);
+}
+
+/* 실패 문구 */
+.join-error-text {
+  margin-top: -17px;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+  color: #ff4a4a;
+  min-height: 18px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  text-align: center;
+}
+
+.join-error-text.show {
+  opacity: 1;
+}
+
+/* 성공 토스트 */
+.login-toast-popup {
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  animation: toast-fade 0.2s ease;
+}
+
+.login-toast-title {
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  color: #fff !important;
+  margin: 0 !important;
+}
+
+/* 라벨 및 필수표시 */
+.input-label {
+  display: block;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.required {
+  color: #ff4a4a;
+}
+
+/* ❓툴팁 아이콘 */
+.folder-tooltip-wrapper {
+  position: relative;
+}
+
+.tooltip-icon {
+  position: absolute;
+  right: 10px;
+  top: 57%;
+  transform: translateY(-97%);
+  cursor: pointer;
+  font-size: 16px;
+  color: #007bff;
+  user-select: none;
+}
+
+.tooltip-icon .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  width: 260px;
+  z-index: 5;
+  transition: opacity 0.25s ease;
+  white-space: normal;
+}
+
+.tooltip-icon:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 애니메이션 */
+@keyframes toast-fade {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .join-box {
+    width: 90%;
+    padding: 40px 30px;
+  }
+  .join-title {
+    font-size: 1.7rem;
+  }
+  .join-btn {
+    font-size: 1rem;
+  }
+}

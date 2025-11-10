@@ -1,0 +1,17 @@
+FastAPI
+uvicorn
+oracledb
+passlib
+python-multipart
+pymupdf
+easyocr
+apscheduler
+dotenv
+sqlalchemy
+passlib
+python-jose[cryptography]
+pydantic[email]
+bcrypt==4.0.1
+requests
+pywin32
+httpx

@@ -1,0 +1,382 @@
+:root { 
+  --header-h: 0px;
+}
+
+/* 기본 설정 */
+html:has(.main-container),
+body:has(.main-container) {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  color: #2b2b2b;
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+/* 메인 섹션 */
+.main-container {
+  position: relative;
+  height: calc(100dvh - var(--header-h));
+  background: linear-gradient(135deg, #e8f0ff 0%, #f5f8ff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 110px;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 메인 제목 영역 */
+.project-title {
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 25px;
+}
+
+/* Sortify AI - 더 크고 두껍게 */
+.project-title strong {
+  font-size: 4rem;              /* 더 크게 */
+  font-weight: 900;             /* 두껍게 */
+  color: #007bff;               /* 진한 블루 */
+  letter-spacing: -1px;
+  text-shadow: 0 4px 7px rgba(30, 58, 138, 0.25); /* 은은한 그림자 */
+}
+
+/* 부제목 (작은 글씨, 다른 색상) */
+.project-title small {
+  display: block;
+  margin-top: 5px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000000; /* 보라빛 포인트 (#7e22ce ~ #8b5cf6 정도) */
+  letter-spacing: -0.3px;
+}
+
+.main-box {
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.1);
+  padding: 80px 60px;
+  max-width: 720px;
+  width: 90%;
+  transition: transform .3s ease;
+}
+.main-box:hover { transform: translateY(-5px); }
+
+.main-subtext {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0 0 36px 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.btn-login, .btn-join {
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #007bff 0%, #00a2ff 100%);
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(0,123,255,.3);
+}
+.btn-login:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,123,255,.4);
+}
+
+.btn-join {
+  background: #fff;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+.btn-join:hover {
+  background: #007bff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.supported-types {
+  margin-top: 26px;
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+}
+
+/* 아래로 스크롤 힌트 */
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.973);
+  text-shadow: 0 0 8px rgba(0,0,0,.25),
+               0 0 20px rgba(0, 0, 0, 0.25);
+  animation: hint-down 1.8s ease-in-out infinite;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+}
+
+@keyframes hint-down {
+  0%,100% {
+    opacity: .45;
+    transform: translate(-50%, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, 6px);
+  }
+}
+
+/* 기능 섹션 */
+.features-section {
+  position: relative;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 100px 60px 5px;
+  text-align: center;
+}
+
+/* 맨 위로 가기 */
+.scroll-top {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: 500;
+  color: #007bff;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.1),
+               0 0 5px rgba(0, 0, 0, 0.25);
+  animation: hint-up 1.8s ease-in-out infinite;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+}
+
+@keyframes hint-up {
+  0%,100% {
+    opacity: .45;
+    transform: translate(-50%, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -6px);
+  }
+}
+
+/* 섹션 타이틀 */
+.features-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.features-title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff, #00a2ff);
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* 기능 5개: 위 3 / 아래 2 (촘촘하고 연결감 있게 - 옵션 B) */
+.features-rows {
+  display: grid;
+  gap: 22px 22px; /* 촘촘한 간격 */
+}
+
+.row {
+  display: grid;
+  gap: 22px;
+}
+
+.row-top {
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+}
+
+.row-bottom {
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+
+/* 기능 타이틀 */
+.features-title {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 1.95rem;
+  font-weight: 900;
+  color: #0057e7;
+}
+
+/* 기능 카드 레이아웃 */
+.features-rows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.feature-item:nth-child(4),
+.feature-item:nth-child(5) {
+  grid-column: span 1;
+}
+
+/* 카드 스타일 */
+.feature-item {
+  background: #f7faff;
+  padding: 32px 22px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.08);
+
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform .28s ease, box-shadow .32s ease;
+}
+
+/* Hover 시 자연스러운 반응 */
+.feature-item:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: 0 10px 28px rgba(0, 123, 255, .2);
+}
+
+
+/* 아이콘 */
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* 기능 제목 강조 */
+.feature-item h3 {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #002f8c;
+  margin-bottom: 6px;
+}
+
+/* 기능 설명 */
+.feature-item p {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #555;
+}
+
+/* ============================= */
+/* 이용방법 */
+/* ============================= */
+
+.divider {
+  width: 80%;
+  max-width: 900px;
+  height: 1px;
+  background-color: #cfd8ef;
+  border: none;
+  margin: 50px auto 35px;
+}
+
+/* 상단 타이틀 */
+.howto-title-main {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #0043bb;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* 두 카드 */
+.howto-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+/* 개별 카드 */
+.howto-card {
+  background: #fff;
+  border: 1px solid #e3e9f8;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 3px 10px rgba(0,0,0,.05);
+}
+
+/* 카드 제목 */
+.howto-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #0038ad;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* 카드 목록 */
+.howto-list li {
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .features-rows {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .howto-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .features-rows {
+    grid-template-columns: 1fr;
+  }
+}
