@@ -15,7 +15,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
 EXTRACT_DIR = os.path.join(BASE_DIR, "extracted_texts")
 UPLOAD_DIR = os.path.join(BASE_DIR, "uploaded_files")
 CLASSFICATOR_DIR = 'http://localhost:8002/new_file/'
-LIBREOFFICE_PATH = r"C:\\Program Files\\LibreOffice\\program\\soffice.exe"
+LIBREOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
 
 
 def convert_hwp_to_pdf(input_path, output_dir):
