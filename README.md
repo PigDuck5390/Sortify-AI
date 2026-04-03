@@ -7,3 +7,4 @@ AI 자동 문서 분류
 
 AI 분류 : https://github.com/bangtugu/Main_Back.git
 
+DB : https://github.com/PigDuck5390/MainProject-DB.git
